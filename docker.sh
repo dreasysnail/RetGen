@@ -1,0 +1,1 @@
+docker run --gpus all --ipc=host --rm -it --mount src=/gdpt/RetDiag,dst=/code,type=bind --mount src=/gdpt,dst=/gdpt,type=bind intersun/gdpt

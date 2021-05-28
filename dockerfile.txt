@@ -1,0 +1,53 @@
+ARG BASE_IMAGE=nvcr.io/nvidia/pytorch:19.07-py3
+FROM $BASE_IMAGE
+ARG BASE_IMAGE
+RUN echo "Installing Apex on top of ${BASE_IMAGE}"
+
+RUN apt-get update && apt-get install wget -y
+RUN mkdir ~/Downloads
+RUN wget -P ~/Downloads https://repo.continuum.io/archive/Anaconda3-2019.10-Linux-x86_64.sh
+
+RUN sh ~/Downloads/Anaconda3-2019.10-Linux-x86_64.sh -b -p /home/anaconda3
+ENV PATH="/home/anaconda3/bin:$PATH"
+RUN echo $PATH
+RUN conda install pytorch=1.4.0 torchvision cudatoolkit=10.1 -c pytorch
+
+RUN apt-get install gcc g++ vim -y
+RUN pip install tensorboardX
+ENV PYTHONIOENCODING="utf8"
+RUN conda install nltk
+RUN python -m nltk.downloader punkt
+ENV DEBIAN_FRONTEND=noninteractive
+RUN apt-get install -y less tzdata
+ENV TZ America/Los_Angeles
+
+RUN pip install regex
+RUN pip install virtualenv
+RUN pip install boto3
+RUN pip install scikit-learn
+RUN pip install comet_ml
+RUN pip install transformers==2.11.0
+
+# configure apex
+# make sure we don't overwrite some existing directory called "apex"
+WORKDIR /tmp/unique_for_apex
+# uninstall Apex if present, twice to make absolutely sure :)
+RUN pip uninstall -y apex || :
+RUN pip uninstall -y apex || :
+# SHA is something the user can touch to force recreation of this Docker layer,
+# and therefore force cloning of the latest version of Apex
+RUN SHA=ToUcHMe git clone https://github.com/NVIDIA/apex.git
+WORKDIR /tmp/unique_for_apex/apex
+RUN pip install -v --no-cache-dir --global-option="--cpp_ext" --global-option="--cuda_ext" .
+WORKDIR /workspace
+
+# configure fairseq
+WORKDIR /tmp/unique_for_fairseq
+# SHA is something the user can touch to force recreation of this Docker layer,
+# and therefore force cloning of the latest version of Apex
+RUN SHA=ToUcHMe git clone https://github.com/pytorch/fairseq
+WORKDIR /tmp/unique_for_fairseq/fairseq
+RUN pip install --editable ./
+
+WORKDIR /workspace
+
