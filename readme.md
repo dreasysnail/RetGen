@@ -85,7 +85,6 @@ python -m torch.distributed.launch --nproc_per_node=8 joint_training.py
      --num_shards 8
      --batch_size 128
      --n_docs 4
-     --rl_method simple
 ```
 
 
