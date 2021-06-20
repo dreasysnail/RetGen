@@ -1,4 +1,4 @@
-name: DPR
+name: RetGen
 channels:
   - defaults
 dependencies:
