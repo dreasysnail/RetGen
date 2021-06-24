@@ -33,7 +33,7 @@ from dialogpt.gpt2_training.distributed import all_reduce_and_rescale_tensors, a
 
 from extract_top_docs import init_retriever, init_retriever_single_rank
 from dpr.options import add_encoder_params, add_cuda_params, setup_args_gpu, set_seed, print_args, add_training_params
-from dpr.utils.model_utils import load_states_from_checkpoint_only_model, load_states_from_checkpoint
+from dpr.utils.model_utils import load_states_from_checkpoint_only_model
 
 from dense_retriever import *
 import re
@@ -191,7 +191,6 @@ output_dir = join(args.output_dir,
                                                timestamp))
 log_dir = args.log_dir if args.log_dir is not None and len(args.log_dir) > 0 else output_dir
 if args.local_rank == -1 or get_rank() == 0:
-
     experiment = None
     os.makedirs(output_dir, exist_ok=True)
 else:

@@ -37,36 +37,7 @@ def init_retriever_single_rank(args, eval_on_each = EVAL_ON_EACH):
 
     encoder.eval()
 
-    # load weights from the model file
-    model_to_load = get_model_obj(encoder)
-    logger.info('Loading saved model state ...')
-
-    prefix_len = len('question_model.')
-    question_encoder_state = {key[prefix_len:]: value for (key, value) in saved_state.model_dict.items() if
-                                key.startswith('question_model.')}
-    model_to_load.load_state_dict(question_encoder_state)
-    vector_size = model_to_load.get_out_size()
-    logger.info('Encoder vector_size=%d', vector_size)
-
-    index_buffer_sz = args.index_buffer
-    if args.hnsw_index:
-        index = DenseHNSWFlatIndexer(vector_size)
-        index_buffer_sz = -1  # encode all at once
-    else:
-        index = DenseFlatIndexer(vector_size)
-
-    retriever = DenseRetriever(encoder, args.batch_size, tensorizer, index)
-
-
-    args.out_file = os.path.join(os.path.dirname(args.model_file), 'dense_embedding', os.path.basename(args.model_file) + '.' + os.path.basename(args.ctx_file))  
-    if hasattr(args, 'load_old_model') and args.load_old_model:
-        args.out_file = os.path.join(os.path.dirname(args.model_file), 'dense_embedding', os.path.basename(args.ctx_file))
-
-    if args.encoding:
-        dense_encoding(args)
-        exit()
-
-    args.encoded_ctx_file = args.out_file + '_*'  
+    args.encoded_ctx_file = args.out_file + '_*'
     if eval_on_each:
         args.encoded_ctx_file = args.out_file + '_' + str(args.shard_id)
 

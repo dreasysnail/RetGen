@@ -3,7 +3,7 @@
 This repository contains the source code and trained model for ["Joint Retrieval and Generation Training for Grounded Text Generation"](https://arxiv.org/abs/2105.06597). RetGen is a joint training framework that simultaneously optimizes a dense passage retriever and a knowledge-grounded text generator in an end-to-end fashion. It can be applied to scenarios including but not limited to conversational modeling, text generation and open-domain question answering. The code implementation is based on [DialoGPT](https://github.com/microsoft/DialoGPT), [Huggingface Transformers](https://github.com/huggingface/transformers), [DPR](https://github.com/facebookresearch/DPR) and [ANCE](https://github.com/microsoft/ANCE). Our [human evaluation results](#human_eval) indicates that RetGen can generate more relevant, interesting and human-like text comparing to vanilla DialoGPT or GPT-2.
 
 
-![Screenshot](figs/model.pdf) Figure: RetGen overview.
+![Screenshot](figs/model.png) Figure: RetGen overview.
 
 
 ## Citation
