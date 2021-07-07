@@ -5,8 +5,6 @@ This repository contains the source code and trained model for ["Joint Retrieval
 
 ![Screenshot](figs/model.png) Figure: RetGen overview.
 
-
-## Citation
 If this repo is helpful to your research, please cite our [paper](https://arxiv.org/abs/2105.06597):
 ```bash
 @article{zhang2021joint,
@@ -223,4 +221,14 @@ the rights to use your contribution.
 This repository aims to facilitate research in large-scale pretraining for conversational data. This toolkit contains only part of the modeling machinery needed to actually produce a model weight file in a running dialog. On its own, this model provides only information about the weights of various text spans; in order for a researcher to actually use it, they will need to bring conversational data of their own and decode the response generation from the pretrained system. We are not responsible for any generation from the 3rd party utilization of the pretrained system. 
 
 
+## Citation
+If this repo is helpful to your research, please cite our [paper](https://arxiv.org/abs/2105.06597):
+```bash
+@article{zhang2021joint,
+  title={Joint Retrieval and Generation Training for Grounded Text Generation},
+  author={Zhang, Yizhe and Sun, Siqi and Gao, Xiang and Fang, Yuwei and Brockett, Chris and Galley, Michel and Gao, Jianfeng and Dolan, Bill},
+  journal={arXiv preprint arXiv:2105.06597},
+  year={2021}
+}
+```
 
