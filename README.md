@@ -135,8 +135,8 @@ The preprocessed wikipedia dump used in our work can be downloaded as in below. 
 
 | Data          |  Link |
 |----------------------|--------|
-| Wiki (2.5GB)| [\[link\]](https://yizzhang.blob.core.windows.net/gdpt/RetGen/data/wiki.txt?sv=2020-04-08&st=2021-06-15T18%3A32%3A15Z&se=2025-01-16T19%3A32%3A00Z&sr=b&sp=r&sig=LPBAKDIRx7UYPuGuvfWKQPe8URbMGpuHnXwwb7gv5mw%3D)| N/A | N/A |
-| arXiv (2.4GB)| [\[link\]](https://yizzhang.blob.core.windows.net/gdpt/RetGen/data/arxiv.tar.gz?sv=2020-04-08&st=2021-06-15T18%3A34%3A01Z&se=2025-01-06T19%3A49%3A00Z&sr=b&sp=r&sig=gYiL2FQWwNYmEo2823QNnkmPMiqD2I7CvyHc%2Fg8o1fs%3D)| 
+| Wiki (2.5GB)| [\[link\]](https://yizzhang.blob.core.windows.net/gdpt/RetGen_local/data/wiki.txt?sv=2019-10-10&st=2021-10-27T22%3A08%3A54Z&se=2025-10-28T22%3A08%3A00Z&sr=b&sp=r&sig=lfJIG1Is5i6XnWmbbyg3HcjFsL4ssNIfJygzf6OGnwI%3D)| N/A | N/A |
+| arXiv (2.4GB)| [\[link\]](https://yizzhang.blob.core.windows.net/gdpt/RetGen_local/data/arxiv.tar.gz?sv=2019-10-10&st=2021-10-27T22%3A12%3A13Z&se=2025-10-28T22%3A12%3A00Z&sr=b&sp=r&sig=CtYVgtXdM7%2FK3%2FPywC41%2B7YgtRzWgH4Ucr0t%2Bogbzwk%3D)| 
 | Reddit| TBD  |
 
 
